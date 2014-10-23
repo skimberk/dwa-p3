@@ -7,8 +7,16 @@ class LipsumController extends \BaseController {
 		$num_paragraphs = 4;
 		$paragraph_length = 'short';
 
-		if(!is_null(Input::get('num_paragraphs')) && Input::get('num_paragraphs') > 0) {
-			$num_paragraphs = Input::get('num_paragraphs');
+		if(!is_null(Input::get('num_paragraphs')) && is_numeric(Input::get('num_paragraphs'))) {
+			if(Input::get('num_paragraphs') < 1) {
+				$num_paragraphs = 1;
+			}
+			else if(Input::get('num_paragraphs') > 100) {
+				$num_paragraphs = 100;
+			}
+			else {
+				$num_paragraphs = Input::get('num_paragraphs');
+			}
 		}
 
 		if(!is_null(Input::get('paragraph_length')) &&
