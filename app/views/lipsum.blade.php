@@ -12,4 +12,8 @@
 
 	{{ Form::submit('Generate text') }}
 {{ Form::close() }}
+
+@foreach($paragraphs as $paragraph)
+	<p>{{ $paragraph }}</p>
+@endforeach
 @stop

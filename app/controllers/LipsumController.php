@@ -18,9 +18,31 @@ class LipsumController extends \BaseController {
 			$paragraph_length = Input::get('paragraph_length');
 		}
 
+		$generator = new Badcow\LoremIpsum\Generator();
+
+		$paragraphs = array();
+
+		for($i = 0; $i < $num_paragraphs; $i++) {
+			$num_sentences = 1;
+
+			if($paragraph_length == 'short') {
+				$num_sentences = mt_rand(1, 3);
+			}
+			else if($paragraph_length == 'medium') {
+				$num_sentences = mt_rand(3, 6);
+			}
+			else if($paragraph_length == 'long') {
+				$num_sentences = mt_rand(6, 10);
+			}
+
+			$sentences = $generator->getSentences($num_sentences);
+			$paragraphs[] = implode(' ', $sentences);
+		}
+
 		return View::make('lipsum', array(
 			'num_paragraphs' => $num_paragraphs,
-			'paragraph_length' => $paragraph_length
+			'paragraph_length' => $paragraph_length,
+			'paragraphs' => $paragraphs
 		));
 	}
 }
