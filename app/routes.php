@@ -14,3 +14,5 @@
 Route::get('/', 'HomeController@index');
 
 Route::get('/lipsum', 'LipsumController@create');
+
+Route::get('/fakeuser', 'FakeUserController@create');
