@@ -7,7 +7,7 @@ A website which generates random Lorem Ipsum placeholder text, as well as fake u
 <http://p3.dwa.sebastian.io/>
 
 ##Demo
-Will be given during my section.
+I made a Jing presentation: <http://screencast.com/t/nbY6NfEK>
 
 ##Details for teaching team
 None (that I can think of).
